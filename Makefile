@@ -7,8 +7,8 @@ test-service:
 
 # compile orchestration
 comp-orch:
-	g++ -std=c++14 main.cpp -o main 
+	g++ -std=c++14 main.cpp train.cpp setup.cpp create_loaders.cpp model_checkpoint.cpp -o delphi-training-orchestration-service
 
 # execute orchestration 
 exec-orch:
-	./main
+	./delphi-training-orchestration-service
