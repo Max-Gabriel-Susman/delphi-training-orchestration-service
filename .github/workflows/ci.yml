@@ -23,7 +23,14 @@ jobs:
   # your_test_executable = ./ change eet later
     - name: Build and run tests
       run: |
-        cmake ..
-        make
-        g++ -std=c++14 summer.cpp summerMain.cpp -lgtest -lgtest_main -pthread -o sumProgram
+        cd googletest 
+        mkdir install 
+        cd install 
+        cmake ../  
+        make 
+        sudo make install 
+        echo "export CPLUS_INCLUDE_PATH=/usr/local/include" >> ~/.bash_profile
+        echo "export LIBRARY_PATH=/usr/local/lib" >> ~/.bash_profile
+        source ~/.bash_profile 
+        g++ -std=c++0x summer.cpp summerMain.cpp -lgtest -lgtest_main -pthread -o sumProgram
         ./sumProgram
