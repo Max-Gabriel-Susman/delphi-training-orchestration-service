@@ -4,3 +4,11 @@ compile-service:
 
 test-service: 
 	./sumProgram
+
+# compile orchestration
+comp-orch:
+	g++ -std=c++14 main.cpp -o main 
+
+# execute orchestration 
+exec-orch:
+	./main

@@ -17,7 +17,7 @@ TEST(IntegerInputsSuite, oneElement)
   const int SIZE = 1;
   double arr[SIZE]  = {33};
   EXPECT_EQ(summer(arr, SIZE), 33) << "The sum is not correct for array of size 1";
-}
+} 
 TEST(DoubleInputsSuite, simpleSum)
 {
   const int SIZE = 3;
