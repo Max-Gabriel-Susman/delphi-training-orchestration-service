@@ -29,7 +29,16 @@ jobs:
         cmake ..
         make
 
+    # - name: Build and run tests
+    #  run: |
+    #    g++ -std=c++14 summer.cpp summerMain.cpp -lgtest -lgtest_main -pthread -o sumProgram
+    #    ./sumProgram
+
     - name: Build and run tests
       run: |
-        g++ -std=c++14 summer.cpp summerMain.cpp -lgtest -lgtest_main -pthread -o sumProgram
+        cd $GITHUB_WORKSPACE  # Switch back to the project directory
+        mkdir build
+        cd build
+        cmake ..
+        make
         ./sumProgram
