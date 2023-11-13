@@ -1,25 +1,19 @@
-cmake_minimum_required(VERSION 3.8)
+# CMakeLists.txt
+cmake_minimum_required(VERSION 3.10)
 
-set(This Example)
+project(MyProject)
 
-project(${This} C CXX)
+# Google Test
+add_subdirectory(googletest)
 
-set(CMAKE_C_STANDARD 99)
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+# Your main executable
+add_executable(my_program main.cpp)
 
-enable_testing()
+# Your test executable
+add_executable(tests test.cpp)
 
-add_subdirectory(googletest)    
+# Link your main program against Google Test
+target_link_libraries(my_program gtest_main)
 
-set(Headers 
-#    Example.hpp
-)
-set(Sources 
-    summer.cpp
-    summerMain.cpp
-)
-
-add_library(${This} STATIC ${Sources} ${Headers})
-
-# add_sudirectory(test)
+# Link your tests against Google Test
+target_link_libraries(tests gtest_main)
